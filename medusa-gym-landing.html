@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medusa Gym — Centro de Entrenamiento Premium en Guayaquil</title>
+<meta name="description" content="Medusa Gym, Guayaquil. Entrenamiento personalizado, equipos Hammer Strength y un ambiente que te acompaña en cada objetivo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0B0B0B;
+    --black-2:#111310;
+    --card:#15170F;
+    --green:#012001;
+    --green-l:#0d3a0c;
+    --gold:#F8D19A;
+    --gold-dim:#c9a874;
+    --white:#FFFFFF;
+    --muted:#a9a69c;
+    --line: rgba(248,209,154,.14);
+    --line-2: rgba(255,255,255,.09);
+    --display: 'Archivo', sans-serif;
+    --accent-font: 'Bebas Neue', sans-serif;
+    --body: 'Inter', sans-serif;
+    --container: 1240px;
+    --ease: cubic-bezier(.16,.8,.24,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  button{font-family:inherit;cursor:pointer;}
+  h1,h2,h3,h4{margin:0;font-family:var(--display);}
+  p{margin:0;}
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  .eyebrow{
+    font-family:var(--accent-font);
+    letter-spacing:.22em;
+    font-size:14px;
+    color:var(--gold);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-transform:uppercase;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:16px 30px;
+    border-radius:999px;
+    font-family:var(--accent-font);
+    letter-spacing:.09em;
+    font-size:15px;
+    border:1px solid transparent;
+    transition:transform .35s var(--ease), background .3s ease, border-color .3s ease, color .3s ease;
+    white-space:nowrap;
+  }
+  .btn-gold{background:var(--gold);color:var(--black);}
+  .btn-gold:hover{transform:translateY(-2px);background:#fff;}
+  .btn-outline{border-color:rgba(255,255,255,.28);color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+  .btn-outline-dark{border-color:rgba(255,255,255,.4);color:var(--white);}
+  .btn-outline-dark:hover{border-color:var(--gold);color:var(--gold);}
+
+  section{position:relative;}
+  .section-pad{padding:120px 0;}
+  @media(max-width:768px){.section-pad{padding:80px 0;}}
+
+  .head-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:64px;
+  }
+  .head-row h2{max-width:640px;}
+  .head-copy{max-width:380px;color:var(--muted);font-size:16px;padding-bottom:6px;}
+
+  .section-title{
+    font-size:clamp(32px,4.2vw,52px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    margin-top:18px;
+  }
+  .gold{color:var(--gold);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ============ SERPENTINE DIVIDER ============ */
+  .serpent{display:block;width:100%;height:auto;}
+  .serpent path{
+    fill:none;
+    stroke:var(--gold);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    opacity:.55;
+    stroke-dasharray:6 10;
+    animation:serpentFlow 26s linear infinite;
+  }
+  @keyframes serpentFlow{to{stroke-dashoffset:-400;}}
+  @media (prefers-reduced-motion: reduce){.serpent path{animation:none;}}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:padding .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .nav.solid{
+    padding:14px 0;
+    background:rgba(11,11,11,.86);
+    backdrop-filter:blur(14px);
+    border-color:var(--line-2);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .logo{display:flex;flex-direction:column;line-height:.86;}
+  .logo strong{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.02em;}
+  .logo span{font-family:var(--accent-font);font-size:13px;letter-spacing:.5em;color:var(--gold);padding-left:2px;margin-top:4px;}
+
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{
+    font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.78);
+    position:relative;
+    padding:6px 0;
+    transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);
+    transition:width .3s var(--ease);
+  }
+  .nav-links a:hover{color:var(--white);}
+  .nav-links a:hover::after{width:100%;}
+
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .wa-icon-btn{
+    width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(255,255,255,.28);
+    transition:border-color .3s ease, background .3s ease;
+    flex-shrink:0;
+  }
+  .wa-icon-btn:hover{border-color:var(--gold);background:rgba(248,209,154,.08);}
+  .wa-icon-btn svg{width:18px;height:18px;fill:var(--white);}
+
+  .burger{
+    display:none;
+    width:42px;height:42px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:50%;
+    background:none;
+    align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;
+  }
+  .burger span{width:16px;height:1px;background:#fff;display:block;transition:transform .3s ease, opacity .3s ease;}
+  .burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+  .mobile-menu{
+    position:fixed;inset:0;z-index:99;
+    background:var(--black);
+    display:flex;flex-direction:column;
+    justify-content:center;
+    padding:32px;
+    transform:translateY(-100%);
+    transition:transform .5s var(--ease);
+  }
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu ul{display:flex;flex-direction:column;gap:22px;margin-bottom:36px;}
+  .mobile-menu a{font-family:var(--display);font-size:30px;font-weight:700;}
+  .mobile-menu .btn{width:max-content;}
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+    background:
+      radial-gradient(ellipse 900px 500px at 82% 12%, rgba(1,32,1,.55), transparent 60%),
+      var(--black);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-copy{max-width:560px;}
+  .hero h1{
+    font-size:clamp(40px,5.6vw,74px);
+    font-weight:900;
+    line-height:.98;
+    letter-spacing:-0.02em;
+    margin:22px 0 26px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+    display:block;
+  }
+  .hero-sub{
+    font-size:17px;
+    color:var(--muted);
+    max-width:420px;
+    margin-bottom:38px;
+  }
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+
+  .hero-indicators{
+    display:flex;
+    gap:0;
+    border-top:1px solid var(--line-2);
+    padding-top:26px;
+    flex-wrap:wrap;
+  }
+  .ind{
+    display:flex;align-items:center;gap:10px;
+    padding-right:28px;margin-right:28px;
+    border-right:1px solid var(--line-2);
+  }
+  .ind:last-child{border-right:none;margin-right:0;padding-right:0;}
+  .ind svg{width:20px;height:20px;stroke:var(--gold);flex-shrink:0;}
+  .ind span{font-size:12.5px;letter-spacing:.03em;color:var(--muted);}
+
+  .hero-visual{position:relative;}
+  .hero-frame{
+    position:relative;
+    border-radius:6px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    isolation:isolate;
+  }
+  .hero-frame img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(45%) contrast(1.08) brightness(.92);
+  }
+  .hero-frame::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(1,32,1,.15), rgba(11,11,11,.55) 88%);
+  }
+  .hero-tag{
+    position:absolute;bottom:26px;left:26px;z-index:2;
+    background:rgba(11,11,11,.7);
+    border:1px solid var(--line);
+    backdrop-filter:blur(6px);
+    padding:12px 18px;
+    border-radius:4px;
+  }
+  .hero-tag p:first-child{font-family:var(--accent-font);letter-spacing:.06em;font-size:12px;color:var(--gold);}
+  .hero-tag p:last-child{font-size:13px;color:var(--muted);margin-top:2px;}
+
+  @media(max-width:940px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{order:-1;max-width:420px;margin:0 auto;}
+    .hero{padding-top:110px;text-align:left;}
+  }
+
+  /* ============ STATS BAND ============ */
+  .stats-band{
+    background:var(--green);
+    padding:46px 0;
+    border-top:1px solid rgba(248,209,154,.12);
+    border-bottom:1px solid rgba(248,209,154,.12);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    text-align:center;
+  }
+  .stat-num{
+    font-family:var(--accent-font);
+    font-size:clamp(34px,4vw,52px);
+    color:var(--gold);
+    letter-spacing:.02em;
+  }
+  .stat-label{font-size:12.5px;color:rgba(255,255,255,.7);letter-spacing:.04em;margin-top:4px;text-transform:uppercase;}
+  @media(max-width:700px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:36px 20px;}
+  }
+
+  /* ============ BENEFICIOS ============ */
+  .benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1px;
+    background:var(--line-2);
+    border:1px solid var(--line-2);
+  }
+  .benefit-card{
+    background:var(--black);
+    padding:40px 28px;
+    transition:background .4s ease;
+  }
+  .benefit-card:hover{background:var(--black-2);}
+  .benefit-card svg{width:30px;height:30px;stroke:var(--gold);margin-bottom:26px;}
+  .benefit-card h3{font-size:19px;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em;}
+  .benefit-card p{font-size:14.5px;color:var(--muted);line-height:1.6;}
+  @media(max-width:940px){.benefits-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.benefits-grid{grid-template-columns:1fr;}}
+
+  /* ============ GALLERY ============ */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .gallery-item{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:4px;
+    background:var(--card);
+  }
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(30%) contrast(1.05);
+    transition:transform .8s var(--ease), filter .5s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.07);filter:grayscale(0%) contrast(1.05);}
+  .gallery-item::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 40%, rgba(11,11,11,.88) 100%);
+    z-index:1;
+  }
+  .gallery-label{
+    position:absolute;left:20px;bottom:18px;z-index:2;
+    font-family:var(--accent-font);
+    letter-spacing:.06em;
+    font-size:17px;
+    color:var(--white);
+  }
+  .gallery-label span{
+    display:block;font-family:var(--body);font-size:11px;letter-spacing:.1em;color:var(--gold);
+    text-transform:uppercase;margin-top:2px;font-weight:600;
+  }
+  @media(max-width:860px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.gallery-grid{grid-template-columns:1fr;}}
+
+  .gallery-more{text-align:center;margin-top:48px;}
+
+  /* ============ MEMBRESIAS ============ */
+  .plans-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    align-items:stretch;
+  }
+  .plan-card{
+    background:var(--card);
+    border:1px solid var(--line-2);
+    border-radius:8px;
+    padding:36px 28px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .plan-card:hover{border-color:rgba(248,209,154,.35);transform:translateY(-4px);}
+  .plan-card.featured{
+    background:linear-gradient(160deg, #16250f, #0e1a0a);
+    border-color:var(--gold);
+  }
+  .plan-ribbon{
+    position:absolute;top:0;right:24px;
+    background:var(--gold);color:var(--black);
+    font-family:var(--accent-font);
+    font-size:12px;letter-spacing:.08em;
+    padding:6px 14px;
+    border-radius:0 0 6px 6px;
+  }
+  .plan-eyebrow{font-family:var(--accent-font);letter-spacing:.12em;font-size:13px;color:var(--gold);text-transform:uppercase;}
+  .plan-title{font-size:23px;font-weight:800;margin:10px 0 18px;letter-spacing:-0.01em;}
+  .plan-price{display:flex;align-items:baseline;gap:4px;margin-bottom:6px;}
+  .plan-price .num{font-family:var(--accent-font);font-size:46px;color:var(--white);}
+  .plan-price .per{font-size:13px;color:var(--muted);}
+  .plan-note{font-size:12.5px;color:var(--muted);margin-bottom:22px;min-height:16px;}
+  .plan-list{margin-bottom:28px;flex-grow:1;}
+  .plan-list li{
+    font-size:14px;color:rgba(255,255,255,.85);
+    padding:9px 0;border-top:1px solid var(--line-2);
+    display:flex;align-items:center;gap:10px;
+  }
+  .plan-list li:first-child{border-top:none;}
+  .plan-list li svg{width:14px;height:14px;stroke:var(--gold);flex-shrink:0;}
+  .plan-card .btn{width:100%;}
+
+  @media(max-width:980px){.plans-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.plans-grid{grid-template-columns:1fr;}}
+
+  /* ============ EQUIPO ============ */
+  .team-section{position:relative;padding:0;height:640px;display:flex;align-items:center;overflow:hidden;}
+  .team-section img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(55%) brightness(.55) contrast(1.05);
+  }
+  .team-section::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(11,11,11,.94) 15%, rgba(11,11,11,.35) 75%);
+  }
+  .team-content{position:relative;z-index:2;max-width:560px;}
+  .team-content p.desc{font-size:17px;color:rgba(255,255,255,.82);margin-top:22px;max-width:460px;}
+  @media(max-width:768px){
+    .team-section{height:auto;padding:100px 0;}
+    .team-section::after{background:linear-gradient(180deg, rgba(11,11,11,.55), rgba(11,11,11,.94));}
+  }
+
+  /* ============ TESTIMONIOS ============ */
+  .testi-track{
+    display:flex;gap:22px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:8px;
+    -ms-overflow-style:none;scrollbar-width:none;
+  }
+  .testi-track::-webkit-scrollbar{display:none;}
+  .testi-card{
+    scroll-snap-align:start;
+    flex:0 0 min(380px,86vw);
+    background:var(--card);
+    border:1px solid var(--line-2);
+    border-radius:8px;
+    padding:32px;
+  }
+  .testi-stars{display:flex;gap:4px;margin-bottom:18px;}
+  .testi-stars svg{width:15px;height:15px;fill:var(--gold);}
+  .testi-card p.quote{font-size:15.5px;color:rgba(255,255,255,.85);line-height:1.7;min-height:110px;}
+  .testi-person{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .testi-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(140deg, var(--green-l), var(--green));
+    border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--accent-font);color:var(--gold);font-size:15px;flex-shrink:0;
+  }
+  .testi-person strong{font-size:14.5px;font-weight:600;display:block;}
+  .testi-person span{font-size:12px;color:var(--muted);}
+
+  .testi-controls{display:flex;gap:12px;justify-content:center;margin-top:36px;}
+  .testi-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);border:none;transition:background .3s ease,transform .3s ease;padding:0;}
+  .testi-dot.active{background:var(--gold);transform:scale(1.25);}
+
+  /* ============ HORARIOS ============ */
+  .hours-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line-2);border:1px solid var(--line-2);
+  }
+  .hour-card{background:var(--black);padding:38px 26px;text-align:center;}
+  .hour-card svg{width:26px;height:26px;stroke:var(--gold);margin-bottom:20px;}
+  .hour-card h4{font-family:var(--accent-font);letter-spacing:.05em;font-size:16px;text-transform:uppercase;margin-bottom:10px;}
+  .hour-card p{font-size:19px;font-weight:600;color:var(--gold);}
+  .hour-card.closed p{color:var(--muted);}
+  @media(max-width:800px){.hours-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ============ UBICACION ============ */
+  .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .loc-item{display:flex;gap:16px;margin-bottom:26px;}
+  .loc-item svg{width:22px;height:22px;stroke:var(--gold);flex-shrink:0;margin-top:2px;}
+  .loc-item h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-family:var(--body);font-weight:600;}
+  .loc-item p{font-size:17px;font-weight:500;}
+  .map-frame{border-radius:8px;overflow:hidden;border:1px solid var(--line-2);aspect-ratio:1/1;filter:grayscale(60%) invert(92%) contrast(85%);}
+  .map-frame iframe{width:100%;height:100%;border:0;}
+  @media(max-width:860px){.location-grid{grid-template-columns:1fr;}}
+
+  /* ============ CTA FINAL ============ */
+  .cta-final{
+    position:relative;overflow:hidden;
+    background:var(--green);
+    padding:100px 0;
+    text-align:center;
+  }
+  .cta-final::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 700px 300px at 50% 0%, rgba(248,209,154,.14), transparent 70%);
+  }
+  .cta-final h2{position:relative;font-size:clamp(30px,4.5vw,50px);font-weight:800;max-width:680px;margin:0 auto 20px;letter-spacing:-0.02em;}
+  .cta-final p{position:relative;color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 38px;font-size:16px;}
+  .cta-final .btn{position:relative;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--black-2);padding:80px 0 32px;border-top:1px solid var(--line-2);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:60px;}
+  .footer-brand p{color:var(--muted);font-size:14px;margin:18px 0 22px;max-width:280px;}
+  .footer-social{display:flex;gap:12px;}
+  .footer-social a{
+    width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+    display:flex;align-items:center;justify-content:center;transition:border-color .3s ease;
+  }
+  .footer-social a:hover{border-color:var(--gold);}
+  .footer-social svg{width:16px;height:16px;fill:var(--white);}
+  .footer-col h5{font-family:var(--accent-font);letter-spacing:.1em;font-size:14px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
+  .footer-col li{margin-bottom:12px;font-size:14px;color:var(--muted);}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{
+    border-top:1px solid var(--line-2);padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:12.5px;color:rgba(255,255,255,.4);
+  }
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+
+  /* ============ WHATSAPP FLOAT ============ */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:90;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 24px rgba(0,0,0,.4);
+    animation:waPulse 3s ease-in-out infinite;
+  }
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+  @keyframes waPulse{
+    0%,100%{box-shadow:0 6px 24px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,.5);}
+    50%{box-shadow:0 6px 24px rgba(0,0,0,.4), 0 0 0 12px rgba(37,211,102,0);}
+  }
+  @media (prefers-reduced-motion: reduce){.wa-float{animation:none;}}
+
+  /* responsive head-row */
+  @media(max-width:700px){
+    .head-row{flex-direction:column;align-items:flex-start;gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#home" class="logo">
+      <strong>MEDUSA</strong>
+      <span>GYM</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#home">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#membresias">Membresías</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-gold" href="#contacto">Visítanos Hoy</a>
+      <a class="wa-icon-btn" href="https://wa.me/593992165233" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.32a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.26-8.23m-4.44 4.71c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.6 4.13 3.54.58.24 1.03.38 1.38.48.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.76-1.86-.2-.48-.4-.42-.55-.43z"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#home">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#instalaciones">Instalaciones</a></li>
+    <li><a href="#membresias">Membresías</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="btn btn-gold" href="#contacto">Visítanos Hoy</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Guayaquil · Ecuador</span>
+      <h1>ENTRENA HOY.<em>TRANSFORMA TU VIDA.</em></h1>
+      <p class="hero-sub">Más que un gimnasio. Un lugar donde cada entrenamiento te acerca a tus objetivos.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="#contacto">Visítanos</a>
+        <a class="btn btn-outline" href="https://wa.me/593992165233" target="_blank" rel="noopener">Escríbenos</a>
+      </div>
+      <div class="hero-indicators">
+        <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M5 12.5a11 11 0 0 1 14 0M8 15.8a6.8 6.8 0 0 1 8 0M12 19h.01" stroke-linecap="round"/></svg><span>WiFi</span></div>
+        <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M2 12h3M19 12h3M6 8v8M18 8v8M6 12h12" stroke-linecap="round"/></svg><span>Hammer Strength</span></div>
+        <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="7" r="3.2"/><path d="M5 20c0-3.6 3.1-6.4 7-6.4s7 2.8 7 6.4" stroke-linecap="round"/></svg><span>Personal Trainer</span></div>
+        <div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12h4l2-6 4 12 2-6h6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cardio Profesional</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-frame">
+        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento de fuerza en Medusa Gym" loading="eager">
+      </div>
+      <div class="hero-tag">
+        <p>Nivel profesional</p>
+        <p>Equipos Hammer Strength</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="serpent" viewBox="0 0 1240 40" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 20 C 150 0, 250 40, 400 20 S 650 0, 800 20 S 1050 40, 1240 18"/>
+</svg>
+
+<!-- ============ STATS BAND ============ -->
+<div class="stats-band">
+  <div class="wrap stats-grid" id="statsGrid">
+    <div><div class="stat-num" data-count="500">0</div><div class="stat-label">Miembros activos</div></div>
+    <div><div class="stat-num" data-count="10">0</div><div class="stat-label">Años de experiencia</div></div>
+    <div><div class="stat-num" data-count="20">0</div><div class="stat-label">Entrenadores</div></div>
+    <div><div class="stat-num" data-count="100">0</div><div class="stat-label">Comprometidos contigo</div></div>
+  </div>
+</div>
+
+<!-- ============ BENEFICIOS ============ -->
+<section class="section-pad" id="nosotros">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Por qué Medusa</span>
+        <h2 class="section-title">¿Por qué elegir <span class="gold">Medusa Gym?</span></h2>
+      </div>
+      <p class="head-copy">Entendemos que cada cuerpo tiene un objetivo distinto: salud, resistencia, definición o hipertrofia. Te acompañamos en el camino con el equipo y la atención que mereces.</p>
+    </div>
+
+    <div class="benefits-grid reveal">
+      <div class="benefit-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="7" r="3.2"/><path d="M5 20c0-3.6 3.1-6.4 7-6.4s7 2.8 7 6.4" stroke-linecap="round"/></svg>
+        <h3>Personal Trainer</h3>
+        <p>Entrenamiento personalizado, adaptado a tu ritmo y a tus metas reales.</p>
+      </div>
+      <div class="benefit-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M2 12h3M19 12h3M6 8v8M18 8v8M6 12h12" stroke-linecap="round"/></svg>
+        <h3>Hammer Strength</h3>
+        <p>Equipamiento profesional de última generación para cada grupo muscular.</p>
+      </div>
+      <div class="benefit-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M9 3a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zM17 21v-2a4 4 0 0 0-2-3.46" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Ambiente Familiar</h3>
+        <p>Espacios cómodos, limpios y pensados para que entrenes sin presiones.</p>
+      </div>
+      <div class="benefit-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 12h4l2-6 4 12 2-6h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Cardio Profesional</h3>
+        <p>Zona completa de cardio para resistencia y quema calórica real.</p>
+      </div>
+      <div class="benefit-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6.5 8.5h11M6.5 15.5h11M4 8.5v7M20 8.5v7M8 8.5v7M16 8.5v7" stroke-linecap="round"/></svg>
+        <h3>Pesas Libres</h3>
+        <p>Área totalmente equipada para trabajar la fuerza a tu manera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTALACIONES ============ -->
+<section class="section-pad" id="instalaciones" style="background:var(--black-2);">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Instalaciones</span>
+        <h2 class="section-title">Equipos de <span class="gold">primer nivel</span></h2>
+      </div>
+      <p class="head-copy">Que las imágenes hablen por sí solas: cada rincón de Medusa está diseñado para tu rendimiento.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/10.avif" alt="Zona de cardio" loading="lazy">
+        <div class="gallery-label">Cardio<span>Caminadoras de alto flujo</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/11.avif" alt="Pesas libres" loading="lazy">
+        <div class="gallery-label">Pesas Libres<span>Mancuernas hasta 50kg</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/17.avif" alt="Hammer Strength" loading="lazy">
+        <div class="gallery-label">Hammer Strength<span>Prensa olímpica</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/22.avif" alt="Zona funcional" loading="lazy">
+        <div class="gallery-label">Zona Funcional<span>Movilidad y flexibilidad</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/23.avif" alt="Smith Machine" loading="lazy">
+        <div class="gallery-label">Smith Machine<span>Fuerza con seguridad</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.gymmedusa.com/images/clients/15.avif" alt="Recepción y ambiente" loading="lazy">
+        <div class="gallery-label">Recepción<span>Ambiente motivador</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBRESIAS ============ -->
+<section class="section-pad" id="membresias">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Membresías</span>
+        <h2 class="section-title">Planes que se adaptan <span class="gold">a ti</span></h2>
+      </div>
+      <p class="head-copy">Elige el plan que se ajusta a tu objetivo. Sin letra pequeña, sin complicaciones.</p>
+    </div>
+
+    <div class="plans-grid reveal">
+
+      <div class="plan-card">
+        <span class="plan-eyebrow">Primera</span>
+        <h3 class="plan-title">Membresía Normal</h3>
+        <div class="plan-price"><span class="num">$25</span><span class="per">/ mes</span></div>
+        <p class="plan-note">Incluye una semana de capacitación</p>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Acceso al gimnasio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Una semana de capacitación</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Cardio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Pesas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Personal Trainer</li>
+        </ul>
+        <a class="btn btn-outline-dark" href="https://wa.me/593992165233?text=Hola%2C%20quiero%20la%20membres%C3%ADa%20Normal" target="_blank" rel="noopener">Quiero esta membresía</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-ribbon">20% OFF</span>
+        <span class="plan-eyebrow">Segunda</span>
+        <h3 class="plan-title">Promoción</h3>
+        <div class="plan-price"><span class="num">20%</span><span class="per">OFF</span></div>
+        <p class="plan-note">Solo primer mes · no incluye capacitación</p>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Acceso completo al gimnasio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Válido solo primer mes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Sin capacitación incluida</li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/593992165233?text=Hola%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20del%2020%25" target="_blank" rel="noopener">Aprovechar promoción</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-eyebrow">Tercera</span>
+        <h3 class="plan-title">Combo 3 Personas</h3>
+        <div class="plan-price"><span class="num">$50</span><span class="per">/ primer mes</span></div>
+        <p class="plan-note">Ideal para entrenar con amigos o familia</p>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Acceso para 3 personas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Válido primer mes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Ideal en grupo</li>
+        </ul>
+        <a class="btn btn-outline-dark" href="https://wa.me/593992165233?text=Hola%2C%20quiero%20el%20combo%20de%203%20personas" target="_blank" rel="noopener">Entrenar en grupo</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-eyebrow">Cuarta</span>
+        <h3 class="plan-title">Estudiantes</h3>
+        <div class="plan-price"><span class="num">Gratis</span></div>
+        <p class="plan-note">Todos los sábados · 13 a 17 años</p>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Entrada gratuita</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Edad 13 a 17 años</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Consulta requisitos en Instagram</li>
+        </ul>
+        <a class="btn btn-outline-dark" href="https://www.instagram.com/gym.medusagorgn/" target="_blank" rel="noopener">Ver requisitos</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<svg class="serpent" viewBox="0 0 1240 40" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 22 C 200 44, 300 2, 460 22 S 700 44, 860 20 S 1080 0, 1240 24"/>
+</svg>
+
+<!-- ============ EQUIPO ============ -->
+<section class="team-section" id="equipo">
+  <img src="https://images.unsplash.com/photo-1517130038641-a774d04afb3c?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Equipo de entrenamiento Medusa Gym" loading="lazy">
+  <div class="wrap">
+    <div class="team-content reveal">
+      <span class="eyebrow">Nuestro equipo</span>
+      <h2 class="section-title">Un equipo que <span class="gold">entrena contigo</span></h2>
+      <p class="desc">Nuestro compromiso es acompañarte, motivarte y ayudarte a cumplir tus objetivos en cada entrenamiento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="section-pad" id="testimonios" style="background:var(--black-2);">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Testimonios</span>
+        <h2 class="section-title">Lo que dicen <span class="gold">nuestros miembros</span></h2>
+      </div>
+    </div>
+
+    <div class="testi-track reveal" id="testiTrack">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+        </div>
+        <p class="quote">"El entrenamiento en Medusa Gym ha sido muy gratificante y me ha impulsado a seguir trabajando en alcanzar mi objetivo fitness."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">JC</div>
+          <div><strong>Juan Carlos</strong><span>Miembro Medusa Gym</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+        </div>
+        <p class="quote">"Entrenar en este gimnasio ha sido una experiencia agradable: máquinas nuevas y de alto nivel, además de personal que te ayuda de verdad."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">MC</div>
+          <div><strong>Martha Cabrera</strong><span>Miembro Medusa Gym</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9L19 7.6l-4.6 4.1L15.8 18 10 14.7 4.2 18l1.4-6.3L1 7.6l6.4-.7z"/></svg>
+        </div>
+        <p class="quote">"Me costaba ir al gimnasio, pero con la atención personalizada y la motivación he adoptado como costumbre asistir frecuentemente a entrenar."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">TP</div>
+          <div><strong>Tatiana Pérez</strong><span>Miembro Medusa Gym</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-controls" id="testiDots"></div>
+  </div>
+</section>
+
+<!-- ============ HORARIOS ============ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Horarios</span>
+        <h2 class="section-title">Cuando tú <span class="gold">quieras entrenar</span></h2>
+      </div>
+    </div>
+    <div class="hours-grid reveal">
+      <div class="hour-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Lunes a Viernes</h4>
+        <p>06:00 – 21:30</p>
+      </div>
+      <div class="hour-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Sábados</h4>
+        <p>08:00 – 20:00</p>
+      </div>
+      <div class="hour-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h4>Feriados</h4>
+        <p>08:30 – 19:00</p>
+      </div>
+      <div class="hour-card closed">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6" stroke-linecap="round"/></svg>
+        <h4>Domingos</h4>
+        <p>Cerrado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UBICACION ============ -->
+<section class="section-pad" id="contacto" style="background:var(--black-2);">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div>
+        <span class="eyebrow">Ubicación</span>
+        <h2 class="section-title">Te esperamos <span class="gold">en Guayaquil</span></h2>
+      </div>
+    </div>
+    <div class="location-grid reveal">
+      <div>
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          <div>
+            <h4>Dirección</h4>
+            <p>Ciudadela Los Vergeles, Guayaquil, Guayas, Ecuador</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke-linejoin="round"/></svg>
+          <div>
+            <h4>Teléfono</h4>
+            <p>(+593) 099 216 5233</p>
+          </div>
+        </div>
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linejoin="round"/></svg>
+          <div>
+            <h4>Email</h4>
+            <p>centerfitnessmedusa2025@gmail.com</p>
+          </div>
+        </div>
+        <a class="btn btn-gold" href="https://www.google.com/maps/dir/?api=1&destination=Ciudadela+Los+Vergeles+Guayaquil+Ecuador" target="_blank" rel="noopener" style="margin-top:8px;">Cómo llegar</a>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Ciudadela+Los+Vergeles,+Guayaquil,+Ecuador&output=embed" loading="lazy" title="Mapa Medusa Gym"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">Tu momento es ahora</span>
+    <h2 style="margin-top:18px;">¿Listo para transformar tu vida?</h2>
+    <p>Únete hoy a la comunidad Medusa Gym y empieza a construir el cuerpo y la disciplina que buscas.</p>
+    <a class="btn btn-gold" href="https://wa.me/593992165233" target="_blank" rel="noopener">Únete Ahora</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><strong>MEDUSA</strong><span>GYM</span></a>
+        <p>Más que un gimnasio, somos tu mejor versión. Entrenamiento serio en el corazón de Guayaquil.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/gym.medusagorgn/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.6 1.8c.46-.16 1.26-.35 2.43-.4C9.3 1.34 9.68 2.2 12 2.2m0 2.16c-3.15 0-3.5.01-4.73.07-.98.04-1.5.2-1.86.34-.47.18-.8.4-1.15.75s-.57.68-.75 1.15c-.14.36-.3.88-.34 1.86-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.04.98.2 1.5.34 1.86.18.47.4.8.75 1.15s.68.57 1.15.75c.36.14.88.3 1.86.34 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c.98-.04 1.5-.2 1.86-.34.47-.18.8-.4 1.15-.75s.57-.68.75-1.15c.14-.36.3-.88.34-1.86.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.04-.98-.2-1.5-.34-1.86a3 3 0 0 0-.75-1.15 3 3 0 0 0-1.15-.75c-.36-.14-.88-.3-1.86-.34-1.23-.06-1.58-.07-4.73-.07m0 3.68a3.96 3.96 0 1 1 0 7.92 3.96 3.96 0 0 1 0-7.92m0 1.94a2.02 2.02 0 1 0 0 4.04 2.02 2.02 0 0 0 0-4.04m5.02-2.16a.93.93 0 1 1-1.86 0 .93.93 0 0 1 1.86 0"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@gym.medusagorgn" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.3v13.7a2.9 2.9 0 1 1-2.06-2.78V9.5a6.2 6.2 0 1 0 5.36 6.15V8.35a7.9 7.9 0 0 0 4.6 1.47V6.5a4.7 4.7 0 0 1-4.6-4.5z"/></svg>
+          </a>
+          <a href="https://wa.me/593992165233" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Enlaces</h5>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#instalaciones">Instalaciones</a></li>
+          <li><a href="#membresias">Membresías</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Horarios</h5>
+        <ul>
+          <li>Lun – Vie: 06:00 – 21:30</li>
+          <li>Sábados: 08:00 – 20:00</li>
+          <li>Feriados: 08:30 – 19:00</li>
+          <li>Domingos: Cerrado</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>Ciudadela Los Vergeles, Guayaquil</li>
+          <li>(+593) 099 216 5233</li>
+          <li>centerfitnessmedusa2025@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Medusa Gym. Todos los derechos reservados.</span>
+      <span>Diseñado para transformar vidas en Guayaquil.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/593992165233" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.14.82.84-3.06-.2-.32a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.26-8.23m-4.44 4.71c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.6 4.13 3.54.58.24 1.03.38 1.38.48.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.36-.76-1.86-.2-.48-.4-.42-.55-.43z"/></svg>
+</a>
+
+<script>
+  // Nav solid on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Animated counters
+  const counters = document.querySelectorAll('.stat-num');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const dur = 1600;
+        const start = performance.now();
+        function tick(now){
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target) + (target === 100 ? '%' : '+');
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => counterIO.observe(el));
+
+  // Testimonial dots
+  const track = document.getElementById('testiTrack');
+  const dotsWrap = document.getElementById('testiDots');
+  const cards = track.querySelectorAll('.testi-card');
+  cards.forEach((c, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => {
+      track.scrollTo({ left: c.offsetLeft - 32, behavior: 'smooth' });
+    });
+    dotsWrap.appendChild(dot);
+  });
+  track.addEventListener('scroll', () => {
+    let closest = 0, closestDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft - track.scrollLeft - 32);
+      if (dist < closestDist) { closestDist = dist; closest = i; }
+    });
+    dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === closest));
+  }, { passive: true });
+</script>
+
+</body>
+</html>
